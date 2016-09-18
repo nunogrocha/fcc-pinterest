@@ -10,6 +10,7 @@ import { Posts } from '../../api/posts.js';
 class CreatePost extends Component {
   constructor(props) {
     super(props);
+    this.state = { error: false}
   }
   
   handleSubmit(event) {
@@ -33,22 +34,26 @@ class CreatePost extends Component {
   }
 
   render() {
+    const taskClassName = classnames({
+      'form-control-danger form-control': this.state.error,
+      'form-control': !this.state.error
+    });
     return (
       <div>
         <div className="container">   
-           <div className="card top-margin">
+           <div className="card full-with">
             <form className="card-block" onSubmit={this.handleSubmit.bind(this)}>
               <fieldset className="form-group">
                 <label>Post Title</label>
-                <input type="text"  ref="postTitle" placeholder="Post Title"/>
+                <input className={taskClassName} type="text"  ref="postTitle" placeholder="Post Title"/>
               </fieldset>
               <fieldset className="form-group">
                 <label>Post Description</label>
-                <input type="text"  ref="postDescription" placeholder="Post Description"/>
+                <input className={taskClassName} type="text"  ref="postDescription" placeholder="Post Description"/>
               </fieldset>
               <fieldset className="form-group">
                 <label>Post Image Link</label>
-                <input type="text"  ref="postImage" placeholder="Post Image"/>
+                <input className={taskClassName} type="text"  ref="postImage" placeholder="Post Image"/>
               </fieldset>
               <button type="submit" className="btn btn-primary-outline" >
                 Add Post

@@ -14,8 +14,8 @@ export default class NavBar extends Component {
           <div className="form-inline pull-xs-right"> 
             { this.props.currentUser ? 
                 <div>
-                  <a className="btn btn-success-outline new-poll" href="/create">+ New Post</a>
-                  <a className="btn btn-primary-outline new-poll" href="/posts">My Posts</a>
+                  <a className="btn btn-outline-success new-poll" href="/create">+ New Post</a>
+                  <a className="btn btn-outline-primary new-poll" href="/posts">My Posts</a>
                   <AccountsUIWrapper />
                 </div>: <AccountsUIWrapper />
             }

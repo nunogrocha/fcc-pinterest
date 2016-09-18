@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Masonry from 'react-masonry-component';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
@@ -33,9 +34,9 @@ class MyPosts extends Component {
     return (
       <div>
         <div className="container">  
-          <div className="card-columns">
-            {this.renderPosts()}
-          </div>
+          <Masonry className={'gallery-class'}>
+              {this.renderPosts()}
+          </Masonry>
         </div>
       </div>
     );
