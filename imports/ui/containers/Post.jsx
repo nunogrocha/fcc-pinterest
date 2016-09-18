@@ -9,6 +9,7 @@ import { Posts } from '../../api/posts.js';
 class Post extends Component {
   constructor(props) {
     super(props);
+    this.state = {errored: false};
   }
 
   getDate(date) {
@@ -19,13 +20,21 @@ class Post extends Component {
     return '/posts/' + owner;
   }
 
+  handleChange(event) {
+    this.setState({errored: true});
+  }
+
   render() {
     if(this.props.post) {
       return (
         <div className="container">   
            <div className="card full-with">
             <div className="card-block" >
-              <img className="card-image" src={this.props.post.img} />
+              {
+                this.state.errored ?
+                <img className="card-image" src="http://ciyuanhawker.com.sg/wp-content/uploads/2015/01/img-placeholder.jpg" /> :
+                <img className="card-image" onError={this.handleChange.bind(this)} src={this.props.post.img} />
+              }
               <div className="card-block">
                 <h4 className="card-title">{this.props.post.title}</h4>
                 <p className="card-text">{this.props.post.description}</p>

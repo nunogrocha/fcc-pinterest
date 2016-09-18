@@ -37,7 +37,6 @@ export default class Post extends Component {
           <img className="card-image" onError={this.handleChange.bind(this)} src={this.props.post.img} />
         }
         <div className="card-block">
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <p className="card-text"><small className="text-muted">by <a href={userPostUrl}>{this.props.post.username}</a></small></p>
           <a href={postUrl} className="btn btn-outline-primary">View Post</a>
           { this.props.showDelete ?
